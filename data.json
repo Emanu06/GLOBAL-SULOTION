@@ -1,0 +1,8 @@
+[
+  {"horario": "21:00", "angulo_reentrada": -6.5, "energia_bateria": 95.0, "forca_g": 1.1, "temperatura_escudo": 150.0, "modulos_binarios": 63, "log_evento": "CONEXAO ORBITAL ESTABELECIDA"},
+  {"horario": "21:10", "angulo_reentrada": -6.5, "energia_bateria": 88.0, "forca_g": 2.4, "temperatura_escudo": 480.0, "modulos_binarios": 63, "log_evento": "INICIO DA MANOBRA DE REENTRADA"},
+  {"horario": "21:20", "angulo_reentrada": -6.4, "energia_bateria": 74.0, "forca_g": 4.1, "temperatura_escudo": 950.0, "modulos_binarios": 63, "log_evento": "AQUECIMENTO TERMICO DENTRO DO LIMIAR"},
+  {"horario": "21:30", "angulo_reentrada": -6.5, "energia_bateria": 15.0, "forca_g": 5.2, "temperatura_escudo": 1180.0, "modulos_binarios": 63, "log_evento": "ALERTA: QUEDA SUBITA DE TENSAO"},
+  {"horario": "21:40", "angulo_reentrada": -6.3, "energia_bateria": 45.0, "forca_g": 5.9, "temperatura_escudo": 1310.0, "modulos_binarios": 31, "log_evento": "DESLIGAMENTO DO MODULO LABORATORIO"},
+  {"horario": "21:50", "angulo_reentrada": -6.2, "energia_bateria": 38.0, "forca_g": 6.1, "temperatura_escudo": 1420.0, "modulos_binarios": 27, "log_evento": "REDIRECIONAMENTO ENERGETICO DE EMERGENCIA"}
+]

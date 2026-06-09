@@ -1,0 +1,1 @@
+Utilizei a extensao do github copilot no vscode , onde ela me ajudou com os textos exibidos nos prints , algumas formulas na quais tive duvida e ajudou a estruturar os arquivos para o github.
