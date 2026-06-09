@@ -1,191 +1,268 @@
-Sistema de Auxílio ao Pouso Terrestre (Missão Lua)
-Integrantes
+# 🚀 Sistema de Auxílio ao Pouso Terrestre (Missão Lua)
 
-Equipe: [Nome da Equipe]
+## 📋 Integrantes
 
-Nome	RM
-Integrante 1	RMXXXXX
-Integrante 2	RMXXXXX
-Integrante 3	RMXXXXX
-Resumo do Problema
+**Equipe:** *Nome da Equipe*
 
-As missões espaciais dependem de sistemas inteligentes capazes de monitorar continuamente as condições operacionais da nave e auxiliar na tomada de decisões críticas.
+| Nome         | RM      |
+| ------------ | ------- |
+| Emanuel B.B Domingues | 569732 |
+| João Pedro Hornos | 572004 |
 
-Este projeto simula um sistema de monitoramento de uma cápsula em processo de reentrada terrestre após uma missão lunar. O sistema recebe dados de telemetria, interpreta as condições da nave, detecta situações de risco, gera alertas automáticos e fornece recomendações para aumentar as chances de um pouso seguro.
 
-Além disso, o sistema realiza uma análise simples de tendência térmica para auxiliar nas decisões durante a fase de reentrada.
+---
 
-Estruturas de Dados Utilizadas
-Lista
+# 🎯 Objetivo do Projeto
 
-Utilizada para armazenar dados temporários e para implementação da fila de alertas e da pilha de eventos críticos.
+Este projeto simula um sistema inteligente de monitoramento para uma missão espacial em fase de reentrada terrestre após uma missão lunar.
 
-Exemplo:
+O sistema recebe dados de telemetria, realiza análises operacionais, identifica situações de risco, gera alertas automáticos e apresenta recomendações para auxiliar na tomada de decisão durante o pouso.
 
+Além disso, é realizada uma análise simples de tendência térmica para prever possíveis comportamentos da cápsula durante a reentrada.
+
+---
+
+# 🛰️ Dados Monitorados
+
+O sistema analisa os seguintes parâmetros:
+
+| Variável           | Descrição                                |
+| ------------------ | ---------------------------------------- |
+| angulo_reentrada   | Ângulo atual de entrada na atmosfera     |
+| energia_bateria    | Nível de energia disponível              |
+| forca_g            | Força gravitacional sofrida pela cápsula |
+| temperatura_escudo | Temperatura do escudo térmico            |
+| modulos_binarios   | Estado dos módulos críticos              |
+| log_evento         | Último evento registrado                 |
+
+---
+
+# 🏗️ Estruturas de Dados Utilizadas
+
+## 📌 Lista
+
+Utilizada para armazenar alertas e eventos críticos.
+
+```python
 fila_alertas = []
 pilha_critica = []
-Matriz (Lista de Listas)
+```
 
-Utilizada para armazenar todas as leituras da telemetria recebidas.
+---
 
-Exemplo:
+## 📌 Matriz (Lista de Listas)
 
+Armazena todas as leituras de telemetria recebidas.
+
+```python
 matriz_leituras = []
+```
 
-Cada linha contém:
+Cada linha da matriz contém:
 
-Horário
-Ângulo de reentrada
-Energia da bateria
-Força G
-Temperatura do escudo térmico
-Estado dos módulos
-Evento registrado
-Dicionário
+* Horário
+* Ângulo de reentrada
+* Energia da bateria
+* Força G
+* Temperatura do escudo
+* Estado dos módulos
+* Evento registrado
 
-Utilizado para armazenar o estado dos módulos críticos da nave.
+---
 
-Exemplo:
+## 📌 Dicionário
 
+Utilizado para representar o estado dos módulos críticos da nave.
+
+```python
 dicionario_modulos = {}
+```
 
-Os módulos monitorados são:
+### Módulos monitorados
 
-Suporte à Vida
-Energia
-Comunicação
-Habitat
-Laboratório
-Armazenamento
-Fila
+* Suporte à Vida
+* Energia
+* Comunicação
+* Habitat
+* Laboratório
+* Armazenamento
 
-A fila é utilizada para registrar alertas detectados durante a análise da missão.
+---
 
-Exemplo:
+## 📌 Fila
 
+Responsável por organizar os alertas gerados pelo sistema.
+
+```python
 fila_alertas.append(alerta)
-Pilha
+```
 
-A pilha registra os últimos eventos críticos identificados pelo sistema.
+---
 
-Exemplo:
+## 📌 Pilha
 
+Responsável por armazenar os eventos críticos mais recentes.
+
+```python
 pilha_critica.append(evento)
-Regras Lógicas do Diagnóstico
+```
 
-O sistema utiliza estruturas IF, ELIF e ELSE para classificar a situação da missão.
+---
 
-Principais operadores utilizados:
+# 🧠 Regras Lógicas de Diagnóstico
 
-AND
-OR
-NOT
+O sistema utiliza estruturas condicionais (`if`, `elif` e `else`) juntamente com operadores lógicos (`AND`, `OR` e `NOT`) para classificar o estado da missão.
 
-Expressão booleana principal:
+## Expressão Booleana Principal
 
+```python
 (angulo > -5.5 or angulo < -7.5) or
 (temperatura > 1500) or
 (forca_g > 6.5 and bateria < 25)
-Critérios utilizados
-Alerta Crítico de Trajetória
+```
 
-Gerado quando:
+---
 
+## 🚨 Alerta Crítico de Trajetória
+
+Condição:
+
+```python
 angulo > -5.5 or angulo < -7.5
-Alerta Crítico de Integridade
+```
 
-Gerado quando:
+### Ação
 
+* Corrigir o ângulo utilizando os propulsores de manobra.
+* Evitar ricochete atmosférico ou destruição por reentrada excessivamente inclinada.
+
+---
+
+## 🔥 Alerta Crítico de Integridade
+
+Condição:
+
+```python
 temperatura > 1500
+```
 
 ou
 
+```python
 forca_g > 6.5 and bateria < 25
-Status Nominal
+```
 
-Gerado quando:
+### Ação
 
-angulo dentro da faixa segura
-e bateria acima de 20%
-Inconsistência Proposital
+* Direcionar energia para sistemas essenciais.
+* Desativar sistemas secundários.
 
-O sistema identifica situações inconsistentes nos dados.
+---
 
-Exemplo:
+## ⚠️ Inconsistência Proposital
 
-bateria < 20%
-e todos os módulos ativos
+Condição:
 
-Essa condição representa um conflito lógico proposital utilizado para validar a capacidade de diagnóstico do sistema.
+```python
+bateria < 20 and modulos_binarios == 63
+```
 
-Técnica de Previsão Utilizada
+### Interpretação
 
-Foi utilizada uma análise simples baseada na média das três últimas temperaturas registradas pelo escudo térmico.
+A bateria está em estado crítico enquanto todos os módulos aparecem ativos.
 
-Exemplo:
+Essa situação foi criada propositalmente para validar a capacidade de diagnóstico do sistema.
 
+---
+
+# 📈 Técnica de Previsão
+
+Foi utilizada uma análise baseada na média das três últimas leituras de temperatura.
+
+```python
 media_temperatura_recente =
 planilha['temperatura_escudo'].tail(3).mean()
+```
 
-Essa média é utilizada para indicar a tendência térmica da cápsula durante a reentrada.
+Essa previsão permite identificar tendências térmicas e auxiliar na tomada de decisão durante a reentrada.
 
-A previsão influencia diretamente o diagnóstico e as recomendações apresentadas ao operador da missão.
+---
 
-Como Executar
+# ▶️ Como Executar
 
-Instale as dependências:
+## Instalação das Dependências
 
+```bash
 pip install -r requirements.txt
+```
 
-Execute o programa:
+## Execução
 
+```bash
 python main.py
+```
 
-Escolha uma das opções:
+---
 
-1 → JSON
-2 → CSV
-3 → TXT
-4 → Dados de Teste
-Exemplo de Entrada
+## Opções de Entrada
+
+| Opção | Tipo           |
+| ----- | -------------- |
+| 1     | JSON           |
+| 2     | CSV            |
+| 3     | TXT            |
+| 4     | Dados de Teste |
+
+---
+
+# 📥 Exemplo de Entrada
 
 O sistema espera os seguintes campos:
 
+```text
 angulo_reentrada
 energia_bateria
 forca_g
 temperatura_escudo
 modulos_binarios
 log_evento
-Exemplo de Saída
+```
 
+---
 
+# 📤 Exemplo de Saída
 
+![alt text](image.png)
 
-[INSERIR PRINT DA EXECUÇÃO AQUI]
+---
 
+# 🛠️ Recomendações Geradas
 
+Dependendo do cenário detectado, o sistema pode recomendar:
 
+### Status Nominal
 
-Recomendações Geradas pelo Sistema
+* Preparar sequência de pouso.
+* Preservar energia até o impacto.
 
-Dependendo das condições detectadas, o sistema pode gerar recomendações como:
+### Alerta de Trajetória
 
-Trajetória Crítica
-Acionar propulsores de manobra.
-Corrigir o ângulo de reentrada.
-Integridade Crítica
-Redirecionar energia para sistemas essenciais.
-Desativar módulos não prioritários.
-Inconsistência Detectada
-Bloquear barramento físico.
-Solicitar revisão dos dados de telemetria.
-Status Nominal
-Preparar sequência de pouso.
-Preservar energia para a fase final da missão.
+* Corrigir o ângulo de reentrada.
 
+### Alerta de Integridade
 
-Arquivos do Projeto
+* Priorizar sistemas essenciais.
+
+### Inconsistência Detectada
+
+* Revisar imediatamente os dados da telemetria.
+
+---
+
+# 📂 Estrutura do Projeto
+
+```text
+.
 ├── main.py
 ├── requirements.txt
 ├── data.json
@@ -194,17 +271,22 @@ Arquivos do Projeto
 │   ├── relatorio.pdf
 │   ├── link_video.txt
 │   └── uso_ia.md
+```
 
+---
 
-Vídeo de Apresentação
+# 🎥 Vídeo de Apresentação
 
 Link do vídeo:
 
-COLE_AQUI_O_LINK_DO_YOUTUBE
-Conclusões e Aprendizados
+```text
+https://youtu.be/rMs_zJqqdw8
+```
 
-O desenvolvimento deste projeto permitiu aplicar conceitos estudados nas três primeiras fases do curso, incluindo estruturas de dados, lógica de programação, análise de dados e tomada de decisão automatizada.
+---
 
-O sistema demonstrou como informações de telemetria podem ser utilizadas para monitorar condições críticas durante uma missão espacial e auxiliar operadores na identificação de riscos e na definição de ações corretivas.
+# 📚 Conclusão
 
-Além dos aspectos técnicos, o projeto reforçou a importância da organização dos dados, da validação das informações recebidas e da construção de diagnósticos confiáveis para sistemas de missão crítica.
+Este projeto permitiu aplicar conceitos de estruturas de dados, lógica computacional, análise de dados e sistemas de monitoramento em um cenário inspirado em operações aeroespaciais.
+
+A solução desenvolvida demonstra como dados de telemetria podem ser interpretados automaticamente para gerar diagnósticos, alertas e recomendações operacionais, contribuindo para a segurança de uma missão espacial.

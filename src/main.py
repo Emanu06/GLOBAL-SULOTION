@@ -1,10 +1,11 @@
 import pandas as pd
 
-CAMPOS_OBRIGATORIOS = ['angulo_reentrada', 'energia_bateria', 'forca_g', 'temperatura_escudo', 'modulos_binarios', 'log_evento']
+CAMPOS_OBRIGATORIOS = ['angulo_reentrada', 'energia_bateria', 'forca_g', 'temperatura_escudo','modulos_binarios', 'log_evento']
+
 NOMES_MODULOS = ["SUPORTE_VIDA", "ENERGIA", "COMUNICACAO", "HABITAT", "LABORATORIO", "ARMAZENAMENTO"]
 
 def main():
-    print("  SISTEMA DE AUXÍLIO AO POUSO TERRESTRE (MISSÃO LUA) ")
+    print("  SISTEMA DE AUXÍLIO AO POUSO TERRESTRE ")
     
     opcao = input("Digite 1 para JSON, 2 para CSV, 3 para TXT ou 4 para Dados de Teste: ").strip()
 
